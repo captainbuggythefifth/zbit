@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Carbon;
 
 class LoginController extends Controller
 {
@@ -61,8 +62,8 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
 
+        $user = Socialite::driver($provider)->user();
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
         return redirect($this->redirectTo);
@@ -78,6 +79,12 @@ class LoginController extends Controller
     public function findOrCreateUser($user, $provider)
     {
         $authUser = User::where('provider_id', $user->id)->first();
+        if(!$authUser){
+            $aUser = User::where('email', $user->email)->first();
+            if($aUser){
+                $authUser = $aUser;
+            }
+        }
         if ($authUser) {
             return $authUser;
         }
@@ -85,7 +92,9 @@ class LoginController extends Controller
             'name'     => $user->name,
             'email'    => $user->email,
             'provider' => $provider,
-            'provider_id' => $user->id
+            'provider_id' => $user->id,
+            'dob'   => Carbon\Carbon::parse('July 9 1990'),
+            'password' => bcrypt('secret'),
         ]);
     }
 }

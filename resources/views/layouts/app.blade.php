@@ -70,7 +70,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="/profile/{{ Auth::user()->username }}">
+                                        <a href="/profile/{!! (Auth::user()->username != "" ? Auth::user()->username : Auth::user()->id) !!}">
                                             Profile
                                         </a>
                                     </li>

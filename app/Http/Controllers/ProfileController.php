@@ -9,7 +9,7 @@ class ProfileController extends Controller
 {
     //
     public function profile($sUsername){
-        $oUser = User::whereUsername($sUsername)->first();
+        $oUser = User::whereUsername($sUsername)->orWhere('id', $sUsername)->first();
         return view('user.profile', compact('oUser', $oUser));
     }
 }
