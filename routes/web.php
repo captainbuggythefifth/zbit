@@ -25,6 +25,13 @@ Route::get('/profile/{username}', 'ProfileController@profile');
 
 Route::resource('/articles', 'ArticlesController');
 
+Route::resource('/posts', 'PostsController');
+
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
+
+
 Route::get('/chat', function (){
     return view('chat');
 })->middleware('auth');

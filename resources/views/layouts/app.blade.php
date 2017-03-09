@@ -76,7 +76,7 @@
                                     </li>
                                     <hr>
                                     <li>
-                                        <a href="/articles">
+                                        <a href="/posts">
                                             Feed
                                         </a>
                                     </li>

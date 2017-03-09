@@ -12583,7 +12583,7 @@ window.axios.defaults.headers.common = {
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: '93f70cf66f0319f740cf'
+  key: 'd2d9cff124265179a568'
 });
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
