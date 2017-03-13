@@ -17,11 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'admin'], function(){
+
+
+    Auth::routes();
+
+    Route::get('dashboard', 'AdminController@index');
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/profile/{username}', 'ProfileController@profile');
+Route::resource('/profile', 'ProfileController');
 
 Route::resource('/articles', 'ArticlesController');
 
@@ -29,7 +38,6 @@ Route::resource('/posts', 'PostsController');
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
-
 
 
 Route::get('/chat', function (){

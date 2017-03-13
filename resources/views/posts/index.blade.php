@@ -6,7 +6,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <span>Gau</span>
+                        <span> <a href="/profile/{{ (isset($aPost->user->username) ? $aPost->user->username : $aPost->user->id ) }}">{{ $aPost->user->name }}</a></span>
                         <span class="pull-right">
                         {{ $aPost->created_at->diffForHumans() }}
                     </span>
@@ -16,7 +16,21 @@
                         <a href="/posts/{{ $aPost->id }}">Read More</a>
                     </div>
                     <div class="panel-footer clearfix" style="background-color: white">
-                        <i class="fa fa-heart pull-right"></i>
+                        <div class="posts-options-container-right">
+                            <div class="posts-options-left">
+
+                            </div>
+                            <div class="posts-options-right pull-right">
+                                @if(Auth::user()->id == $aPost->user_id)
+                                    <a href="/posts/{{ $aPost->id }}/edit">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                @endif
+                                <a href="/likes/posts/{{ $aPost->id }}">
+                                    <i class="fa fa-heart"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@ class AddProviderProviderIdAndMakeEmailNullable extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->string('email')->change();
+            $table->string('email')->nullable(false)->change();
             $table->dropColumn(['provider', 'provider_id']);
         });
     }

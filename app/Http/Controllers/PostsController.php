@@ -11,7 +11,7 @@ class PostsController extends Controller
 {
     //
     public function index(){
-        $aPosts = Post::orderBy('id', 'desc')->paginate(10);
+        $aPosts = Post::orderBy('id', 'desc')->with('user')->paginate(10);
         //$aPostsLive = Post::whereLive(1)->get();
 
         //$aPosts = DB::table('Posts')->whereLive(1)->get();

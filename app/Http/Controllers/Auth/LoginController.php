@@ -91,9 +91,9 @@ class LoginController extends Controller
         return User::create([
             'name'     => $user->name,
             'email'    => $user->email,
+            'avatar'    => $user->avatar_original,
             'provider' => $provider,
             'provider_id' => $user->id,
-            'dob'   => Carbon\Carbon::parse('July 9 1990'),
             'password' => bcrypt('secret'),
         ]);
     }

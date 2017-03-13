@@ -7,14 +7,13 @@
                 Edit Post
             </div>
             <div class="panel-body">
-                <form method="post" action="/Posts/{{ $oPost->id }}">
+                <form method="post" action="/posts/{{ $oPost->id }}">
                     {{ method_field("PUT") }}
                     {{ csrf_field() }}
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="form-group">
                         <label for="content">Content</label>
-                        <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ $oPost->content }}
-                        </textarea>
+                        <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ $oPost->content }}</textarea>
                     </div>
                     <div class="checkbox">
                         <label for="live">

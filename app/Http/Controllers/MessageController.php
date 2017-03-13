@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
     //
     public function index(){
-
+        $oMessages = Message::orderBy('id', 'desc');
+        dd($oMessages);
     }
 
     public function create(){
