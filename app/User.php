@@ -31,6 +31,10 @@ class User extends Authenticatable
         'dob'
     ];
 
+    public function isAdmin(){
+        return $this->role == "admin" ? true : false;
+    }
+
     public function messages(){
         return $this->hasMany(Message::class);
     }

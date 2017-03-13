@@ -18,10 +18,6 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function(){
-
-
-    Auth::routes();
-
     Route::get('dashboard', 'AdminController@index');
 });
 
