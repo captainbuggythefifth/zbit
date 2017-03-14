@@ -17,7 +17,6 @@ class PostsController extends Controller
 
         //$aPosts = DB::table('Posts')->whereLive(1)->get();
 
-        dd($aPosts);
         return view('posts.index', compact('aPosts'));
     }
 
