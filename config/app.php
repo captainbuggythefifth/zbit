@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Webpatser\Countries\CountriesServiceProvider::class,
 
     ],
 
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Countries' => Webpatser\Countries\CountriesFacade::class,
 
     ],
 

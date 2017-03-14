@@ -26,7 +26,7 @@
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 @endif
-                                <a href="/likes/posts/{{ $aPost->id }}">
+                                <a href="/likes/post/{{ $aPost->id }}">
                                     <i class="fa fa-heart"></i>
                                 </a>
                             </div>

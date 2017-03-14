@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         factory(App\User::class, 100)->create();
-        factory(App\Article::class, 1000)->create();
+        factory(App\Post::class, 1000)->create();
+
+
+        //Seed the countries
+        //$this->call('CountriesSeeder');
+        //$this->command->info('Seeded the countries!');
     }
 }

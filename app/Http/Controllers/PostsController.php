@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Controllers\Auth;
 use DB;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -16,6 +17,7 @@ class PostsController extends Controller
 
         //$aPosts = DB::table('Posts')->whereLive(1)->get();
 
+        dd($aPosts);
         return view('posts.index', compact('aPosts'));
     }
 
@@ -37,7 +39,8 @@ class PostsController extends Controller
 
     public function show($id){
         $oPost = Post::findOrFail($id);
-
+        $aUser = User::findOrFail($oPost->user_id);
+        $oPost->user = $aUser;
         return view('posts.show', compact('oPost'));
     }
 

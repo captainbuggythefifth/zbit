@@ -55,3 +55,10 @@ Route::post('/messages', function(){
 
     return ['status' => 'OK'];
 })->middleware('auth');
+
+
+Route::get('/countries', 'CountriesController@index');
+
+Route::get('/likes/{model}/{modelId}', 'LikesController@index');
+
+Route::get('/activities', 'ProfileController@activities');

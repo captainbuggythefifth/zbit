@@ -22,11 +22,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'dob'   => Carbon\Carbon::parse('July 9 1990'),
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'country_id' => App\Country::all()->random()->id,
     ];
 });
 
 
-$factory->define(App\Article::class, function (Faker\Generator $faker) {
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
 
 
     return [
